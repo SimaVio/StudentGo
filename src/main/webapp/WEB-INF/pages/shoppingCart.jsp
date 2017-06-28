@@ -23,7 +23,7 @@
             <fmt:setLocale value="en_US" scope="session"/>
 
             <h2>
-                Cart
+                Cosul de cumparaturi
                 <c:if test="${cartSize > 0}">
                     <span class="label label-success">${cartSize}</span>
                 </c:if>

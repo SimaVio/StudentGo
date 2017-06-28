@@ -20,7 +20,7 @@
         <div class="col-md-12">
 
 
-            <h2 align="center">Va rugam sa va logati</h2>
+            <h2 align="center">Va rugam sa va autentificati</h2>
 
 
             <jsp:include page="_footer.jsp"/>

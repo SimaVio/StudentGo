@@ -29,7 +29,7 @@
 
             <fmt:setLocale value="en_US" scope="session"/>
 
-            <h2>Order #${orderInfo.orderNum}</h2>
+            <h2>Cerere #${orderInfo.orderNum}</h2>
 
             <div class="well">
                 <h3>Informatii student</h3>

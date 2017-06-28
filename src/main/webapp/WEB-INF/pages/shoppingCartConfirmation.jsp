@@ -47,11 +47,10 @@
                 <form method="POST" action="${pageContext.request.contextPath}/shoppingCartConfirmation">
 
                     <a class="btn btn-default"
-                       href="${pageContext.request.contextPath}/shoppingCart">Edit Cart</a>
+                       href="${pageContext.request.contextPath}/shoppingCart">Editare cos cumparaturi</a>
 
                     <a class="btn btn-default"
-                       href="${pageContext.request.contextPath}/shoppingCartCustomer">Edit
-                        Customer Info</a>
+                       href="${pageContext.request.contextPath}/shoppingCartCustomer">Editare informatii clinti</a>
 
                     <input type="submit" value="Send" class="btn btn-primary"/>
                 </form>

@@ -20,7 +20,7 @@
         <div class="col-md-12">
 
 
-            <h2>Finalize</h2>
+            <h2>Finalizare comanda</h2>
 
             <div class="text-center">
                 <h2><b></b></h2>
