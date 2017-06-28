@@ -72,7 +72,7 @@ public class MainController extends RootController {
         return "index";
     }
 
-    @RequestMapping({"/productList"})
+    @RequestMapping({"/listaproduse"})
     public String listProductHandler(Model model, //
                                      @RequestParam(value = "name", defaultValue = "") String likeName,
                                      @RequestParam(value = "page", defaultValue = "1") int page) {
@@ -86,7 +86,7 @@ public class MainController extends RootController {
         return "productList";
     }
 
-    @RequestMapping({"/buyProduct"})
+    @RequestMapping({"/cumparaprodus"})
     public String listProductHandler(HttpServletRequest request, Model model, //
                                      @RequestParam(value = "code", defaultValue = "") String code) {
 
@@ -102,10 +102,10 @@ public class MainController extends RootController {
 
             cartInfo.addProduct(productInfo);
         }
-        return "redirect:/shoppingCart";
+        return "redirect:/cost";
     }
 
-    @RequestMapping({"/shoppingCartRemoveProduct"})
+    @RequestMapping({"/costRemoveProduct"})
     public String removeProductHandler(HttpServletRequest request, Model model, //
                                        @RequestParam(value = "code", defaultValue = "") String code) {
         Product product = null;
@@ -121,10 +121,10 @@ public class MainController extends RootController {
             cartInfo.removeProduct(productInfo);
 
         }
-        return "redirect:/shoppingCart";
+        return "redirect:/cost";
     }
 
-    @RequestMapping(value = {"/shoppingCart"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/cost"}, method = RequestMethod.GET)
     public String shoppingCartHandler(HttpServletRequest request, Model model) {
         CartInfo myCart = Utils.getCartInSession(request);
 
@@ -132,14 +132,14 @@ public class MainController extends RootController {
         return "shoppingCart";
     }
 
-    @RequestMapping(value = {"/shoppingCartCustomer"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/cosstudent"}, method = RequestMethod.GET)
     public String shoppingCartCustomerForm(HttpServletRequest request, Model model) {
 
         CartInfo cartInfo = Utils.getCartInSession(request);
 
         if (cartInfo.isEmpty()) {
 
-            return "redirect:/shoppingCart";
+            return "redirect:/cost";
         }
 
         CustomerInfo customerInfo = cartInfo.getCustomerInfo();
@@ -152,7 +152,7 @@ public class MainController extends RootController {
         return "shoppingCartCustomer";
     }
 
-    @RequestMapping(value = {"/shoppingCartCustomer"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/cosstudent"}, method = RequestMethod.POST)
     public String shoppingCartCustomerSave(HttpServletRequest request, //
                                            Model model, //
                                            @ModelAttribute("customerForm") @Validated CustomerInfo customerForm, //
@@ -169,31 +169,31 @@ public class MainController extends RootController {
 
         cartInfo.setCustomerInfo(customerForm);
 
-        return "redirect:/shoppingCartConfirmation";
+        return "redirect:/confiramarecos";
     }
 
-    @RequestMapping(value = {"/shoppingCartConfirmation"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/confiramarecos"}, method = RequestMethod.GET)
     public String shoppingCartConfirmationReview(HttpServletRequest request, Model model) {
         CartInfo cartInfo = Utils.getCartInSession(request);
 
         if (cartInfo.isEmpty()) {
-            return "redirect:/shoppingCart";
+            return "redirect:/cost";
         } else if (!cartInfo.isValidCustomer()) {
-            return "redirect:/shoppingCartCustomer";
+            return "redirect:/cosstudent";
         }
 
         return "shoppingCartConfirmation";
     }
 
-    @RequestMapping(value = {"/shoppingCartConfirmation"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/confiramarecos"}, method = RequestMethod.POST)
     @Transactional(propagation = Propagation.NEVER)
     public String shoppingCartConfirmationSave(HttpServletRequest request, Model model) {
         CartInfo cartInfo = Utils.getCartInSession(request);
 
         if (cartInfo.isEmpty()) {
-            return "redirect:/shoppingCart";
+            return "redirect:/cost";
         } else if (!cartInfo.isValidCustomer()) {
-            return "redirect:/shoppingCartCustomer";
+            return "redirect:/cosstudent";
         }
         try {
             orderDAO.saveOrder(cartInfo);
@@ -204,16 +204,16 @@ public class MainController extends RootController {
 
         Utils.storeLastOrderedCartInSession(request, cartInfo);
 
-        return "redirect:/shoppingCartFinalize";
+        return "redirect:/finalizarecos";
     }
 
-    @RequestMapping(value = {"/shoppingCartFinalize"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/finalizarecos"}, method = RequestMethod.GET)
     public String shoppingCartFinalize(HttpServletRequest request, Model model) {
 
         CartInfo lastOrderedCart = Utils.getLastOrderedCartInSession(request);
 
         if (lastOrderedCart == null) {
-            return "redirect:/shoppingCart";
+            return "redirect:/cost";
         }
 
         return "shoppingCartFinalize";
@@ -238,17 +238,17 @@ public class MainController extends RootController {
         if (login != null && password != null && login.length() > 0 && password.length() > 0) {
             securityService.autoLogin(login, password);
         }
-        return "redirect:/accountInfo";
+        return "redirect:/infocont";
     }
 
-    @RequestMapping(value = {"/productInfo"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/infoprodus"}, method = RequestMethod.GET)
     public String productInfo(Model model, @RequestParam(value = "code", defaultValue = "") String code) {
         ProductInfo productInfo = null;
         if (code != null && code.length() > 0) {
             productInfo = productDAO.findProductInfo(code);
         }
         if (productInfo == null) {
-            return "redirect:/productList";
+            return "redirect:/listaproduse";
         }
         model.addAttribute("productInfo", productInfo);
         return "productInfo";

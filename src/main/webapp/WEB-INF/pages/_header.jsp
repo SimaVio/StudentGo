@@ -9,7 +9,7 @@
     <div class="header-bar">
         <c:if test="${pageContext.request.userPrincipal.name != null}">
 
-            <a href="${pageContext.request.contextPath}/accountInfo">
+            <a href="${pageContext.request.contextPath}/infocont">
                 <b>${pageContext.request.userPrincipal.name}</b>
             </a>
             &nbsp;|&nbsp;

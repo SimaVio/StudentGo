@@ -35,20 +35,20 @@
                     <h3>Nu exista produse in cosul de cumparaturi</h3>
                     <br>
                     <br>
-                    <a href="${pageContext.request.contextPath}/productList">Arata lista de produse</a>
+                    <a href="${pageContext.request.contextPath}/listaproduse">Arata lista de produse</a>
                 </div>
             </c:if>
 
             <c:if test="${not empty cartForm and not empty cartForm.cartLines   }">
                 <form:form method="POST" modelAttribute="cartForm"
-                           action="${pageContext.request.contextPath}/shoppingCart">
+                           action="${pageContext.request.contextPath}/cost">
 
                     <c:forEach items="${cartForm.cartLines}" var="cartLineInfo"
                                varStatus="varStatus">
                         <div class="product-preview-container">
                             <ul>
                                 <li class="crop">
-                                    <a href="${pageContext.request.contextPath}/productInfo?code=${cartLineInfo.productInfo.code}">
+                                    <a href="${pageContext.request.contextPath}/infoprodus?code=${cartLineInfo.productInfo.code}">
                                         <img class="product-image"
                                              src="${pageContext.request.contextPath}/productImage?code=${cartLineInfo.productInfo.code}"/>
                                     </a>
@@ -58,7 +58,7 @@
 
                                 </li>
                                 <li>Nume:
-                                    <a href="${pageContext.request.contextPath}/productInfo?code=${cartLineInfo.productInfo.code}">
+                                    <a href="${pageContext.request.contextPath}/infoprodus?code=${cartLineInfo.productInfo.code}">
                                             ${cartLineInfo.productInfo.name}
                                     </a>
                                 </li>
@@ -88,7 +88,7 @@
                                     </script>
 
                                     <a class="btn btn-xs btn-danger"
-                                       href="${pageContext.request.contextPath}/shoppingCartRemoveProduct?code=${cartLineInfo.productInfo.code}">
+                                       href="${pageContext.request.contextPath}/costRemoveProduct?code=${cartLineInfo.productInfo.code}">
                                        Sterge
                                     </a>
                                 </li>
@@ -100,9 +100,9 @@
                     <div class="well-sm text-center">
 
                         <a class="btn btn-default"
-                           href="${pageContext.request.contextPath}/productList">Contina Cumparaturile</a>
+                           href="${pageContext.request.contextPath}/listaproduse">Contina Cumparaturile</a>
                         <a class="btn btn-primary"
-                           href="${pageContext.request.contextPath}/shoppingCartCustomer">Introdu informatii pentru factura</a>
+                           href="${pageContext.request.contextPath}/cosstudent">Introdu informatii pentru factura</a>
                     </div>
                 </form:form>
 
@@ -111,7 +111,7 @@
 
             <script>
                 function update(code, varStatusIndex) {
-                    var url = '${pageContext.request.contextPath}/shoppingCartUpdateProduct?code=' + code + '&qty=';
+                    var url = '${pageContext.request.contextPath}/costUpdateProduct?code=' + code + '&qty=';
                     var newQty = Number($("#cartLines" + varStatusIndex).val());
                     var price = $('#price-' + code).html();
                     var newTotal = newQty * Number(price.replace(/[^0-9\.]+/g, ""));

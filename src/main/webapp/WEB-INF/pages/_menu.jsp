@@ -11,8 +11,8 @@
 
             <div class="btn-group" role="group">
                 <a class="btn btn-default" href="${pageContext.request.contextPath}/">Home</a>
-                <a class="btn btn-default" href="${pageContext.request.contextPath}/productList">Lista produse</a>
-                <a class="btn btn-default" href="${pageContext.request.contextPath}/shoppingCart">
+                <a class="btn btn-default" href="${pageContext.request.contextPath}/listaproduse">Lista produse</a>
+                <a class="btn btn-default" href="${pageContext.request.contextPath}/cost">
                     <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                     Cos de cumparaturi
                     <c:if test="${cartSize > 0}">
@@ -20,11 +20,11 @@
                     </c:if>
                 </a>
                 <security:authorize access="hasAnyRole('ROLE_ADMINISTRATOR','ROLE_ANGAJAT')">
-                    <a class="btn btn-default" href="${pageContext.request.contextPath}/orderList">Lista aprobare</a>
+                    <a class="btn btn-default" href="${pageContext.request.contextPath}/listacomanda">Lista aprobare</a>
                 </security:authorize>
 
                 <security:authorize access="hasRole('ROLE_ADMINISTRATOR')">
-                    <a class="btn btn-default" href="${pageContext.request.contextPath}/product">Creare nou produs</a>
+                    <a class="btn btn-default" href="${pageContext.request.contextPath}/produs">Creare nou produs</a>
                 </security:authorize>
             </div>
 

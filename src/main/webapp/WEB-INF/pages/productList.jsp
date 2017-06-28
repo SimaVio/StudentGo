@@ -30,14 +30,14 @@
                     <div class="product-preview-container">
                         <ul>
                             <li class="crop">
-                                <a href="${pageContext.request.contextPath}/productInfo?code=${prodInfo.code}">
+                                <a href="${pageContext.request.contextPath}/infoprodus?code=${prodInfo.code}">
                                     <img class="product-image"
                                          src="${pageContext.request.contextPath}/productImage?code=${prodInfo.code}"/>
                                 </a>
                             </li>
                             <li>Cod: ${prodInfo.code}</li>
                             <li>Nume:
-                                <a href="${pageContext.request.contextPath}/productInfo?code=${prodInfo.code}">
+                                <a href="${pageContext.request.contextPath}/infoprodus?code=${prodInfo.code}">
                                         ${prodInfo.name}
                                 </a>
                             </li>
@@ -56,13 +56,13 @@
                                  role="group">
 
                                 <a class="btn btn-primary"
-                                   href="${pageContext.request.contextPath}/buyProduct?code=${prodInfo.code}">
+                                   href="${pageContext.request.contextPath}/cumparaprodus?code=${prodInfo.code}">
                                     Cumpara
                                 </a>
                                 <!-- For Manager edit Product -->
                                 <security:authorize access="hasRole('ROLE_ADMINISTRATOR')">
                                     <a class="btn btn-warning"
-                                       href="${pageContext.request.contextPath}/product?code=${prodInfo.code}">
+                                       href="${pageContext.request.contextPath}/produs?code=${prodInfo.code}">
                                         Editeaza
                                     </a>
                                     <a class="btn btn-danger"

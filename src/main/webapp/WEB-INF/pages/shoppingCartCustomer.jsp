@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-md-12">
             <div>
-                <a href="${pageContext.request.contextPath}/productList">
+                <a href="${pageContext.request.contextPath}/listaproduse">
                     &crarr; Back
                 </a>
             </div>
@@ -30,7 +30,7 @@
             <h2>Introducere informatii studenti </h2>
 
             <form:form method="POST" modelAttribute="customerForm"
-                       action="${pageContext.request.contextPath}/shoppingCartCustomer">
+                       action="${pageContext.request.contextPath}/cosstudent">
 
                 <table class="table">
                     <tr>

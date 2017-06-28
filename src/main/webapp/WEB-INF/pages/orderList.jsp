@@ -58,7 +58,7 @@
                                 <fmt:formatNumber value="${orderInfo.amount}"  currencySymbol="RON: " type="currency" />
                             </td>
                             <td>
-                                <a class="btn btn-default btn-xs" href="${pageContext.request.contextPath}/order?orderId=${orderInfo.id}">
+                                <a class="btn btn-default btn-xs" href="${pageContext.request.contextPath}/comanda?orderId=${orderInfo.id}">
                                     Detalii
                                 </a>
                             </td>
@@ -74,13 +74,13 @@
 
                                     <c:if test="${paginationResult.currentPage == page}">
                                         <li class="active">
-                                            <a href="${pageContext.request.contextPath}/orderList?page=${page}" class="nav-item">
+                                            <a href="${pageContext.request.contextPath}/listacomanda?page=${page}" class="nav-item">
                                                     ${page} <span class="sr-only">(current)</span>
                                             </a>
                                         </li>
                                     </c:if>
                                     <c:if test="${paginationResult.currentPage != page}">
-                                        <li><a href="${pageContext.request.contextPath}/orderList?page=${page}" class="nav-item">${page}</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/listacomanda?page=${page}" class="nav-item">${page}</a></li>
                                     </c:if>
 
                                 </c:if>

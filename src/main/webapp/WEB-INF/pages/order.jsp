@@ -22,7 +22,7 @@
         <div class="col-md-12">
 
             <div>
-                <a href="${pageContext.request.contextPath}/orderList">
+                <a href="${pageContext.request.contextPath}/listacomanda">
                     &crarr; Back
                 </a>
             </div>
@@ -64,7 +64,7 @@
                     <tr>
                         <td>${orderDetailInfo.productCode}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/productInfo?code=${orderDetailInfo.productCode}">
+                            <a href="${pageContext.request.contextPath}/infoprodus?code=${orderDetailInfo.productCode}">
                                     ${orderDetailInfo.productName}
                             </a>
                         </td>

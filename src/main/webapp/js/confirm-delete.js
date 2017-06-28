@@ -26,7 +26,7 @@ $(function () {
             $modalDiv.modal('hide').removeClass('loading');
             setTimeout(function () {
                 var pathname = window.location.pathname;
-                window.location.replace(root + "/orderList");
+                window.location.replace(root + "/listacomanda");
             }, 500);
         });
     });

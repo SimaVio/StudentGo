@@ -27,13 +27,13 @@
                  role="group">
 
                 <a class="btn btn-primary"
-                   href="${pageContext.request.contextPath}/buyProduct?code=${productInfo.code}">
+                   href="${pageContext.request.contextPath}/cumparaprodus?code=${productInfo.code}">
                     Buy Now
                 </a>
                 <!-- For Manager edit Product -->
                 <security:authorize access="hasRole('ROLE_ADMINISTRATOR')">
                     <a class="btn btn-warning"
-                       href="${pageContext.request.contextPath}/product?code=${productInfo.code}">
+                       href="${pageContext.request.contextPath}/produs?code=${productInfo.code}">
                         Edit
                     </a>
                     <a class="btn btn-danger"

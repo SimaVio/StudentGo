@@ -19,7 +19,7 @@
         <div class="col-md-12">
 
             <div style="text-align: left;">
-                <a href="${pageContext.request.contextPath}/productList">
+                <a href="${pageContext.request.contextPath}/listaproduse">
                     &crarr; Back
                 </a>
             </div>

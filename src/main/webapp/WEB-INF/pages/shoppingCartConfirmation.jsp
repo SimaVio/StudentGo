@@ -44,13 +44,13 @@
             </div>
             <div class="text-center">
 
-                <form method="POST" action="${pageContext.request.contextPath}/shoppingCartConfirmation">
+                <form method="POST" action="${pageContext.request.contextPath}/confiramarecos">
 
                     <a class="btn btn-default"
-                       href="${pageContext.request.contextPath}/shoppingCart">Editare cos cumparaturi</a>
+                       href="${pageContext.request.contextPath}/cost">Editare cos cumparaturi</a>
 
                     <a class="btn btn-default"
-                       href="${pageContext.request.contextPath}/shoppingCartCustomer">Editare informatii clinti</a>
+                       href="${pageContext.request.contextPath}/cosstudent">Editare informatii clinti</a>
 
                     <input type="submit" value="Send" class="btn btn-primary"/>
                 </form>
@@ -71,7 +71,7 @@
                                     <input type="hidden" name="code" value="${cartLineInfo.productInfo.code}"/>
                                 </li>
                                 <li>Name:
-                                    <a href="${pageContext.request.contextPath}/productInfo?code=${cartLineInfo.productInfo.code}">
+                                    <a href="${pageContext.request.contextPath}/infoprodus?code=${cartLineInfo.productInfo.code}">
                                             ${cartLineInfo.productInfo.name}
                                     </a>
                                 </li>

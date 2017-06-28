@@ -71,7 +71,7 @@
                         <tr>
                             <td>${orderDetailInfo.productCode}</td>
                             <td>
-                                <a href="${pageContext.request.contextPath}/productInfo?code=${orderDetailInfo.productCode}">
+                                <a href="${pageContext.request.contextPath}/infoprodus?code=${orderDetailInfo.productCode}">
                                         ${orderDetailInfo.productName}
                                 </a>
                             </td>
@@ -110,7 +110,7 @@
                 </c:if>
                 <div class="text-center">
                     <a class="btn btn-default"
-                       href="${pageContext.request.contextPath}/order?orderId=${orderInfo.id}">
+                       href="${pageContext.request.contextPath}/comanda?orderId=${orderInfo.id}">
                         Cancel
                     </a>
 

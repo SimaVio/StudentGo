@@ -36,11 +36,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();
 
-        http.authorizeRequests().antMatchers("/orderList", "/order", "/editOrder", "/deleteOrder", "/accountInfo")//
+        http.authorizeRequests().antMatchers("/listacomanda", "/comanda", "/editOrder", "/deleteOrder", "/infocont")//
                 .access("hasAnyRole('ROLE_ANGAJAT', 'ROLE_ADMINISTRATOR')");
-        http.authorizeRequests().antMatchers("/productList","/shoppingCart","/accountInfo")//
+        http.authorizeRequests().antMatchers("/listaproduse","/cost","/infocont")//
                 .access("hasAnyRole('ROLE_ANGAJAT', 'ROLE_ADMINISTRATOR' ,'ROLE_STUDENT')");
-        http.authorizeRequests().antMatchers("/product", "/deleteProduct").access("hasRole('ROLE_ADMINISTRATOR')");
+        http.authorizeRequests().antMatchers("/produs", "/deleteProduct").access("hasRole('ROLE_ADMINISTRATOR')");
 
         http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
 
@@ -48,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .loginProcessingUrl("/j_spring_security_check") // Submit URL
                 .loginPage("/login")//
-                .defaultSuccessUrl("/accountInfo")//
+                .defaultSuccessUrl("/infocont")//
                 .failureUrl("/login?error=true")//
                 .usernameParameter("userName")//
                 .passwordParameter("password")

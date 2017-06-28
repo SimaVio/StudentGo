@@ -63,7 +63,7 @@ public class AdminController  extends RootController{
         return "login";
     }
 
-    @RequestMapping(value = {"/accountInfo"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/infocont"}, method = RequestMethod.GET)
     public String accountInfo(Model model) {
 
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -75,7 +75,7 @@ public class AdminController  extends RootController{
         return "accountInfo";
     }
 
-    @RequestMapping(value = {"/orderList"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/listacomanda"}, method = RequestMethod.GET)
     public String orderList(Model model, //
                             @RequestParam(value = "page", defaultValue = "1") String pageStr) {
         int page = 1;
@@ -93,7 +93,7 @@ public class AdminController  extends RootController{
         return "orderList";
     }
 
-    @RequestMapping(value = {"/product"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/produs"}, method = RequestMethod.GET)
     public String product(Model model, @RequestParam(value = "code", defaultValue = "") String code) {
         ProductInfo productInfo = null;
 
@@ -108,7 +108,7 @@ public class AdminController  extends RootController{
         return "product";
     }
 
-    @RequestMapping(value = {"/product"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/produs"}, method = RequestMethod.POST)
     @Transactional(propagation = Propagation.NEVER)
     public String productSave(Model model, //
                               @ModelAttribute("productForm") @Validated ProductInfo productInfo, //
@@ -127,7 +127,7 @@ public class AdminController  extends RootController{
             return "product";
 
         }
-        return "redirect:/productList";
+        return "redirect:/listaproduse";
     }
 
 
@@ -140,7 +140,7 @@ public class AdminController  extends RootController{
             productInfo = productDAO.findProductInfo(code);
         }
         if (productInfo == null) {
-            return "redirect:/productList";
+            return "redirect:/listaproduse";
         }
         model.addAttribute("productForm", productInfo);
         return "productDelete";
@@ -168,17 +168,17 @@ public class AdminController  extends RootController{
 
         }
 
-        return "redirect:/productList";
+        return "redirect:/listaproduse";
     }
 
-    @RequestMapping(value = {"/order"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/comanda"}, method = RequestMethod.GET)
     public String orderView(Model model, @RequestParam(value = "orderId", defaultValue = "") String orderId) {
         OrderInfo orderInfo = null;
         if (orderId != null) {
             orderInfo = this.orderDAO.getOrderInfo(orderId);
         }
         if (orderInfo == null) {
-            return "redirect:/orderList";
+            return "redirect:/listacomanda";
         }
         List<OrderDetailInfo> details = this.orderDAO.listOrderDetailInfos(orderId);
         orderInfo.setDetails(details);
@@ -196,7 +196,7 @@ public class AdminController  extends RootController{
             orderInfo = this.orderDAO.getOrderInfo(orderId);
         }
         if (orderInfo == null) {
-            return "redirect:/orderList";
+            return "redirect:/listacomanda";
         }
         List<OrderDetailInfo> details = this.orderDAO.listOrderDetailInfos(orderId);
         orderInfo.setDetails(details);
@@ -234,7 +234,7 @@ public class AdminController  extends RootController{
             return "orderEdit";
         }
 
-        return "redirect:/order?orderId=" + orderInfo.getId();
+        return "redirect:/comanda?orderId=" + orderInfo.getId();
     }
 
     @RequestMapping(value = {"/deleteOrder"}, method = RequestMethod.POST)
@@ -245,7 +245,7 @@ public class AdminController  extends RootController{
             orderInfo = this.orderDAO.getOrderInfo(orderId);
         }
         if (orderInfo == null) {
-            return "redirect:/orderList";
+            return "redirect:/listacomanda";
         }
 
         try {
@@ -256,6 +256,6 @@ public class AdminController  extends RootController{
             return "order";
         }
 
-        return "redirect:/orderList";
+        return "redirect:/listacomanda";
     }
 }
